@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'profile/profile'
+  get 'profile/new'
+  post 'profile/create'
+  get 'profile/edit'
+  put 'profile/commit'
   devise_for :users
   get '/', to: 'welcome#index', as: 'root'
   resources :users

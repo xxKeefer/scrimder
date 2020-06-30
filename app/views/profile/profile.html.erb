@@ -1,0 +1,35 @@
+<section class="hero is-small is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= current_user.username %>'s Profile
+      </h1>
+      <h2 class="subtitle">
+        Edit your Details here
+      </h2>
+    </div>
+  </div>
+</section>
+<% unless Profile.exists?(user_id: current_user.id)%>
+  <%= link_to 'Create Profile', profile_new_path, class:"button is-link is-large" %>
+<% else %>
+<% info = Profile.find_by(user_id: current_user.id) %>
+  <section class="section">
+    <h1 class="title is-1"><%= info.username %></h1>
+    <h2 class="subtitle is-3">add with <%= info.bnet %></h2><br/>
+
+    <h1 class="title is-4">Prefers to play: <%= info.pref_role %></h1>
+    <h2 class="subtitle is-4">Can play <%= info.other_role %></h2><br/>
+
+    <h1 class="title is-6">Role Ratings</h1>
+    <p class= 'subtitle is-6'>
+      Tank: <%= info.tank %>
+      Damage: <%= info.damage %>
+      Support: <%= info.support %>
+    </p>
+
+  </section>
+  <section class="section">
+    <%= link_to 'Edit Profile', profile_edit_path, class:"button is-warning" %>
+  </section>
+<% end %>

@@ -1,0 +1,38 @@
+<% @all_users.each do |u| %>
+  <% next if user_signed_in? && u.id == current_user.id%>
+    <article class="tile is-child is-3">
+      <div class="card player-card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="https://via.placeholder.com/96">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4"><%= u.username %></p>
+              <p class="subtitle is-6"><%= u.bnet %></p>
+            </div>
+          </div>
+
+          <div class="content">
+            Plays
+            <span class="has-text-weight-bold is-captilized"><%= u.pref_role %></span>
+            then
+            <span class="has-text-weight-bold is-captilized"><%= u.other_role %></span>.
+          </div>
+          <footer class="card-footer">
+            <i class="fas fa-shield-alt"></i>
+            <p class="card-footer-item has-text-weight-bold">
+              <%= u.tank %>SR</p>
+            <i class="fas fa-user-ninja"></i>
+            <p class="card-footer-item has-text-weight-bold">
+              <%= u.damage %>SR</p>
+            <i class="fas fa-heartbeat"></i>
+            <p class="card-footer-item has-text-weight-bold">
+              <%= u.support %>SR</p>
+          </footer>
+        </div>
+      </div>
+    </article>
+  <% end %>

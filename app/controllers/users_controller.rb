@@ -4,12 +4,16 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @all_users = Profile.all
+    puts @all_users
+    @user_info = Profile.find_by(user_id: current_user.id) if user_signed_in?
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @user_info = Profile.find_by(user_id: current_user.id)
+    @all_users = Profile.all
   end
 
   # GET /users/new
