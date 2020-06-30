@@ -1,0 +1,19 @@
+<div class="section">
+  <%= form_with url: profile_create_path do |f| %>
+    <%= f.label :username, class: 'label' %>
+    <%= f.text_field :username, class: 'control' %><br/>
+    <%= f.label :bnet, class: 'label' %>
+    <%= f.text_field :bnet, class: 'control' %><br/>
+    <%= f.label :pref_role, class: 'label' %>
+    <%= f.text_field :pref_role, class: 'control' %><br/>
+    <%= f.label :other_role, class: 'label' %>
+    <%= f.text_field :other_role, class: 'control' %><br/>
+    <%= f.label :tank, class: 'label' %>
+    <%= f.text_field :tank, class: 'control' %><br/>
+    <%= f.label :damage, class: 'label' %>
+    <%= f.text_field :damage, class: 'control' %><br/>
+    <%= f.label :support, class: 'label' %>
+    <%= f.text_field :support, class: 'control' %><br/>
+    <%= f.submit "Create" %>
+  <% end %>
+</div>

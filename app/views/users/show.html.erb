@@ -1,4 +1,34 @@
-<p id="notice"><%= notice %></p>
+<section class="section tile is-ancestor">
+  <section class="tile is-parent">
+    <article class="card tile is-child is-3">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="https://via.placeholder.com/96">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4"><%= @user_info.username %></p>
+              <p class="subtitle is-6"><%= @user_info.bnet %></p>
+            </div>
+          </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <div class="content">
+            Plays
+            <span class="has-text-weight-bold is-captilized"><%= @user_info.pref_role %></span>
+            then
+            <span class="has-text-weight-bold is-captilized"><%= @user_info.other_role %></span>.
+          </div>
+          <footer class="card-footer">
+            <p class="has-text-weight-bold"><%= @user_info.tank %></p>
+            <p class="has-text-weight-bold"><%= @user_info.damage %></p>
+            <p class="has-text-weight-bold"><%= @user_info.support %></p>
+          </footer>
+        </div>
+      </div>
+
+    </article>
+  </section>
+</section>
